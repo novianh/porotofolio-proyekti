@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Option;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 
@@ -15,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Option::create([
+        User::create([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@admin.com',
             'password' => bcrypt('123456'),
         ]);
     }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\siteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('admin.dashboard');
-// });
+Route::get('/', function () {
+    return view('site.index');
+});
 
-Route::resource('/', siteController::class);
+Route::get('/admin', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/admin/profile', function () {
+    return view('profile');
+})->middleware(['auth'])->name('profile');
+
+require __DIR__.'/auth.php';
